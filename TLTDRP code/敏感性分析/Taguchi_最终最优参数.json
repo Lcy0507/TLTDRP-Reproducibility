@@ -1,0 +1,52 @@
+{
+  "version": "NO_RESTART_IALNS_TAGUCHI_L27_20261120_V1",
+  "algorithm": "IALNS_FULL_NO_RESTART",
+  "source": "L27排名试验_11",
+  "factor_levels": {
+    "A": 2,
+    "B": 1,
+    "C": 2,
+    "D": 2,
+    "E": 2,
+    "F": 3,
+    "G": 1,
+    "H": 2,
+    "I": 3,
+    "J": 3,
+    "K": 1,
+    "L": 3
+  },
+  "parameters": {
+    "max_iterations": 500,
+    "initial_temperature": 2500.0,
+    "cooling_rate": 0.992,
+    "minimum_temperature": 0.05,
+    "reaction_factor": 0.2,
+    "weight_update_interval": 40,
+    "local_search_period": 3,
+    "local_search_cost_ratio": 1.02,
+    "random_destroy_ratio": 0.15,
+    "worst_destroy_ratio": 0.18,
+    "reward_global_best": 25.0,
+    "reward_improve_current": 12.0,
+    "reward_accepted_worse": 4.0,
+    "reward_rejected": 1.0,
+    "local_reward_improve": 20.0,
+    "local_reward_fail": 3.0,
+    "empty_tower_reward_improve": 10.0,
+    "empty_tower_reward_fail": 2.0
+  },
+  "selection_metrics": {
+    "rank": 1,
+    "candidate": "L27排名试验_11",
+    "SN_ratio_smaller_better": -21.12744977586484,
+    "mean_RPD_pct": 5.66858065410076,
+    "std_RPD_pct": 9.228857445505628,
+    "mean_instance_CV_pct": 4.081874874149458,
+    "feasible_rate_pct": 100.0,
+    "mean_CPU_s": 2.1537817160288495,
+    "mean_cost": 445989.8514354458,
+    "count": 15,
+    "failed": 0
+  }
+}
