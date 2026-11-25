@@ -1,0 +1,15 @@
+新林68节点稳健性实验A/B
+
+文件说明：
+稳健性实验A_B_新林68节点.py：实验驱动、结果导出及绘图
+IALNS_原版独立算法.py：上传压缩包中独立无重启IALNS求解内核，未修改
+新林案例_68个节点.xlsx：上传的原始案例
+Taguchi_最终最优参数.json：上传的正式参数文件
+
+安装：pip install numpy pandas matplotlib openpyxl scipy
+正式运行：python 稳健性实验A_B_新林68节点.py --experiment all --runs 10 --iterations 500
+快速冒烟测试：python 稳健性实验A_B_新林68节点.py --experiment A --quick --output-dir 快速测试
+断点续跑：同样命令加 --resume；请勿改变参数。
+输出：独立运行CSV、汇总CSV、Excel、最优巡检方案PNG/PDF/EPS、比较图。
+原模型WT在新林案例下可能不可行，未获得可行解时不报告Best/Avg。
+注意：脚本仅对实际找到的可行解统计成本；启发式未找到可行解不等于数学证明不可行。

@@ -1,0 +1,35 @@
+TLTDRP：四类巡检模式比较（2026-11-20）
+=======================================
+文件：
+  TLTDRP_四场景_最新Taguchi无重启IALNS_完整代码.py
+  Taguchi_最终最优参数.json
+
+依赖：pip install numpy pandas matplotlib openpyxl fonttools
+
+默认根目录：E:\森林火灾巡检研究\Code\instances-2
+
+推荐正式命令（CMD；从本程序所在目录运行）：
+python "TLTDRP_四场景_最新Taguchi无重启IALNS_完整代码.py" --scope all --runs 10 --parameter-file "Taguchi_最终最优参数.json" --base-dir "E:\森林火灾巡检研究\Code\instances-2" --output-dir "四场景_17算例_Taguchi正式结果" --truck-range 300 --drone-range 50 --tower-radius 10
+
+仅仿真：--scope simulation
+仅真实案例：--scope real
+单个算例：--instance "小规模算例1_4个节点"
+快速环境自检：--instance "小规模算例1_4个节点" --runs 1 --iterations 30
+断点续跑：原命令后追加 --resume （其他参数不得变化）
+Windows自动弹图：原命令后追加 --show-best （将打开68幅方案图，建议分批使用）
+仅表格无图：原命令后追加 --skip-plots
+
+正式实验默认采用Taguchi JSON中500轮迭代，不要附加--iterations。
+
+模型要求：Excel至少包含node,x,y,Classification列；支持子目录递归查找。
+模式：仅塔 / 塔+车 / 塔+机 / 塔+车+机。
+无重启机制；算法冻结参数通过JSON加载；不修改其他成本和约束。
+
+成本解释：
+  FullFeasibleAnnualCost / BestFullCost：仅在100%覆盖并满足所有约束时报告。
+  PhysicalAnnualCost / BestCoveragePlanCost：部分覆盖时为已实施方案实际物理成本，不能与全覆盖成本直接比较。
+  ObjectiveWithPenalty：算法搜索用含惩罚目标，不能作为经济成本。
+  CoverageRate：已服务监测节点比例；UncoveredNodes：未服务节点清单。
+  最优覆盖率是算法搜索发现的最好值，并非不可达情景数学上严格证明的最大覆盖率。
+
+输出：每个场景CSV和图、总Excel、表6论文宽表、15例均值与两个真实案例分别统计。
